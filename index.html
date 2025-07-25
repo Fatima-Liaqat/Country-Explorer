@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Explorer</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <!-- This backdrop will cover the page content when pop-ups are active -->
+    <div id="page-backdrop"></div>
+
+        <!-- POP-UP 1: Simple Age Check -->
+        <div class="age-popup-validator">
+            <h4 id="prompt">Enter your age</h4>
+            <input id="age-input" type="text" placeholder="e.g., 18, 19...">
+            <button id="submit">Submit</button>
+        </div>
+
+        <!-- POP-UP 2: Date of Birth Check -->
+        <div class="dob">
+            <h2>Select Your Date of Birth</h2>
+            <div class="dob-container">
+                <select id="day-select">
+                    <option value="">Day</option>
+                </select>
+                <select id="month-select">
+                    <option value="">Month</option>
+                </select>
+                <select id="year-select">
+                    <option value="">Year</option>
+                </select>
+            </div>
+            <button class="submit-dob">Submit</button>
+        </div>
+
+        <!-- This restriction message is for the simple age check -->
+        <div id="restricted">
+            <p>You are permanently restricted from viewing this site due to age limitations.</p>
+        </div>
+        <!-- This restriction message is for the DOB check -->
+        <div id="restrict">
+            <p>Based on your date of birth, you are restricted from viewing this site.</p>
+        </div>
+    
+        <!-- This is the main content of your application -->
+        <main style="display: none;">
+            <section class="profile">
+                <div class="profile-data">
+                    <img class="calender" src="media/calendar.svg" alt="image">
+                    <span class="age">Age: </span>
+                    <span class="present-age"></span>
+                </div>
+                <div class="profile-data">
+                    <img class="flag" src="media/flag.svg" alt="image">
+                    <span class="country">Country: </span>
+                    <span class="current-country">Loading...</span>
+                </div>
+                <div class="profile-data">
+                    <img class="ip-img" src="media/ip.svg" alt="image">
+                    <span class="ip">IP Address: </span>
+                    <span class="current-ip">Loading...</span>
+                </div>
+                <div>
+                    <button id="reset">Reset</button>
+                </div>
+            </section>
+
+            <section class="countries">
+                <h1>Explore Country</h1>
+                <p>Search for a country by name</p>
+                <form id="country-search-form">
+                    <input type="search" id="country-search-input" placeholder="e.g., Pakistan, Japan...">
+                    <button type="submit">Search</button>
+                </form>
+
+            <div>
+                <img id = "flagImage" class="country-flag" src="#" alt="Country Flag" style="display: none;">
+                <p id = "errorMsg" class="error-message"></p>
+                <p class="name"></p>
+                <p class="capital"></p>
+                <p class="fact"></p>
+                <p class="start">Search for a country above to reveal its flag and a fascinating fact!</p>
+            </div>
+        </section>
+       
+    </main>
+     <div class = "toggle">
+            <img class = "light theme" src = "media/light.svg" alt = "image">
+            <img class = "dark theme" src = "media/dark.svg" alt = "image">
+        </div>
+    
+    <!-- Pop-up for country search confirmation -->
+    <div id="confirmation-dialog">
+        <p class="confirmation"></p>
+        <div class="confirm-button">
+            <button id = "yesbtn">Yes, Continue</button>
+            <button id = "nobtn">No, Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

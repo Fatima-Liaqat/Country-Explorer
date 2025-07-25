@@ -1,0 +1,529 @@
+:root 
+{
+    /* Background Colors */
+    --color-body-bg: #F8FAFC;
+    --color-main-content-bg: rgb(203, 198, 168);
+    --color-popup-bg: rgb(203, 198, 168);
+    --color-profile-bg: white;
+    --color-backdrop-bg: rgba(255, 255, 255, 0.8); 
+    
+    /* Text Colors */
+    --color-text-primary: black;
+    --color-text: rgb(0, 0, 0);
+    --color-text-on-button: white;
+    --color-text-on-inverted-button: black;
+
+    /* Button and UI Element Colors */
+    --color-button-primary-bg: black;
+    --color-button-secondary-bg: white;
+    --color-button-confirm-bg: rgb(213, 208, 178); 
+    --color-input-bg: white;
+    --color-dropdown-bg: black;
+    --color-dropdown-text: white;
+}
+
+.dark-theme 
+{
+    /* Background Colors */
+    --color-body-bg: #9f9f9f; 
+    --color-main-content-bg: #1A1A1A; 
+    --color-popup-bg: #1A1A1A; 
+    --color-profile-bg: #b4b4b4; 
+    --color-backdrop-bg:  #9f9f9f; 
+
+    /* Text Colors */
+    --color-text-primary: white; 
+    --color-text: white;
+    --color-text-on-button: #ffffff;
+    --color-text-on-inverted-button: #E0E0E0;
+
+    /* Button and UI Element Colors */
+    --color-button-primary-bg: rgb(108, 107, 107); 
+    --color-button-secondary-bg: #3A3A3A; 
+    --color-button-confirm-bg: #505050; 
+    --color-input-bg: #7e7d7d; 
+    --color-dropdown-bg: #3A3A3A; 
+    --color-dropdown-text: #ffffff; 
+}
+
+
+@font-face 
+{
+    font-family: 'Helvetica';
+    src: url('https://cdn.shopify.com/s/files/1/0732/1537/7700/files/Helvetica.woff?v=1739359181') format('woff');
+}
+
+@font-face 
+{
+    font-family: 'Ivy-Presto-Text';
+    src: url('https://cdn.shopify.com/s/files/1/0732/1537/7700/files/ivy-presto-text-light.woff?v=1739364041') format('woff');
+}
+
+@font-face 
+{
+    font-family: 'Aleo-SemiBold';
+    src: url('/cdn/shop/files/Aleo-SemiBold.ttf?v=1716205520');
+}
+
+body 
+{
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-body-bg);
+    color: var(--color-text-primary); 
+}
+
+h4, h2, h1 
+{
+    font-family: 'Aleo-SemiBold';
+}
+
+.age, .country, .ip 
+{
+    font-weight: 600;
+}
+
+.profile span 
+{
+    font-family: 'Helvetica';
+}
+
+#restricted, #restrict, .countries 
+{
+    font-family: 'Helvetica';
+}
+
+button 
+{
+    font-family: 'Ivy-Presto-Text';
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+/* POPUPS, BACKDROP, AND OVERLAYS */
+#page-backdrop 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-backdrop-bg);
+    z-index: 998;
+    display: none;
+}
+
+.age-popup-validator, .dob 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    background-color: var(--color-popup-bg);
+    height: 30vh;
+    padding: 2vw;
+    transform: translate(-50%, -50%);
+    border-radius: 2vw;
+    z-index: 1000;
+    display: none;
+    color: var(--color-text-primary);
+}
+
+.age-popup-validator 
+{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+.dob 
+{
+    position: fixed;
+    left: 50%;
+    top: 40%;
+}
+
+#restricted, #restrict 
+{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2vw;
+    width: 30vw;
+    padding: 2vw;
+    border-radius: 1vw;
+    text-align: center;
+    color: var(--color-text-primary);
+    background-color: var(--color-popup-bg);
+    z-index: 1000;
+    display: none;
+}
+
+#confirmation-dialog 
+{
+    z-index: 1008;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5vw;
+    width: 30vw;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: var(--color-text-primary);
+    background-color: var(--color-profile-bg); 
+    display: none;
+}
+
+/* FORMS, INPUTS, AND BUTTONS */
+#prompt 
+{
+    font-size: 1.5vw;
+    margin-top: -3vh;
+}
+
+#age-input, #country-search-input 
+{
+    border-radius: 0.5vw;
+    border: none;
+    width: 13vw;
+    height: 4vh;
+    margin-top: -2vh;
+    margin-bottom: 2vh;
+    padding: 0 1vw;
+    font-size: 1.2vw;
+    background-color: var(--color-input-bg);
+    color: var(--color-text-primary);
+}
+
+#country-search-input 
+{
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    height: auto; 
+}
+
+
+#age-input:focus, #country-search-input:focus 
+{
+    outline: none;
+}
+
+#age-input::placeholder, #country-search-input::placeholder 
+{
+    font-size: 1vw;
+    padding-left: 0;
+    opacity: 1;
+    color: var(--color-text-primary);
+    opacity: 0.7;
+}
+
+#age-input:focus::placeholder, #country-search-input:focus::placeholder 
+{
+    opacity: 0;
+}
+
+
+#submit, #reset, #country-search-form button 
+{
+    border-radius: 0.5vw;
+    border: none;
+    background-color: var(--color-button-primary-bg);
+    color: var(--color-text-on-button);
+}
+
+#submit 
+{
+    width: 8vw;
+    height: 5vh;
+    margin-top: 2vh;
+}
+
+#reset 
+{
+    padding: 1vh 2vw;
+}
+
+#country-search-form button 
+{
+    padding: 1.7vh 2vw;
+}
+
+
+.submit-dob 
+{
+    border-radius: 0.5vw;
+    border: none;
+    width: 8vw;
+    height: 5vh;
+    margin-top: 2vh;
+    background-color: var(--color-button-secondary-bg);
+    color: var(--color-text-on-inverted-button);
+}
+
+.confirm-button 
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3vh;
+}
+
+.confirm-button button 
+{
+    background-color: var(--color-button-confirm-bg);
+    color: var(--color-text-primary);
+    width: 10vw;
+    height: 6vh;
+    border: none;
+    border-radius: 0.5vw;
+}
+
+
+.dob-container select 
+{
+    background-color: var(--color-dropdown-bg);
+    color: var(--color-dropdown-text);
+    height: 5vh;
+    width: 7vw;
+    border-radius: 0.5vw;
+    text-align: center;
+    border: none;
+}
+
+/* MAIN CONTENT STYLING */
+main 
+{
+    margin: 3vh 2vw;
+    padding: 2rem;
+    background-color: var(--color-main-content-bg);
+    height: 83vh;
+    border-radius: 2vw;
+}
+
+.profile 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--color-profile-bg);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.profile-data 
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.profile-data img 
+{
+    width: 40px;
+    height: 40px;
+}
+
+.countries 
+{
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.country-flag 
+{
+    width: 150px;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.toggle 
+{
+    position: fixed;
+    top: 85%;
+    left: 90%;
+    z-index: 1009;
+    border: none;
+}
+
+.toggle img 
+{
+    width: 2vw;
+    height: 2vw;
+}
+
+.theme 
+{
+    position: fixed;
+    top: 85%;
+    left: 90%;
+    border: none;
+}
+
+/* MEDIA QUERIES for Mobile (max-width: 768px)*/
+@media (max-width: 768px) 
+{
+    h1 
+    {
+        font-size: 2rem; 
+    }
+
+    h2 
+    {
+        font-size: 1.5rem;
+    }
+
+    button 
+    {
+        font-size: 3vw;
+    }
+
+   
+    .age-popup-validator, .dob 
+    {
+        width: 80vw; 
+        height: 30vh;
+        padding: 5vw;
+    }
+
+    #restricted, #restrict 
+    {
+        width: 80vw !important;
+        font-size: 6vw !important; 
+    }
+
+    #confirmation-dialog 
+    {
+        width: 85vw;
+        font-size: 3.5vw;
+    }
+    
+    .confirm-button button 
+    {
+        width: 30vw; 
+        height: 8vh;
+    }
+
+    
+    #prompt 
+    {
+        font-size: 6vw !important;
+        margin-bottom: 2vh;
+    }
+
+    #age-input 
+    {
+        width: 50vw !important;
+        height: 4vh !important;
+        font-size: 6vw !important;
+        margin-top: 2vh !important;
+    }
+    #age-input::placeholder
+    {
+        font-size: 4vw !important;
+    }
+
+    #submit, .submit-dob 
+    {
+        width: 40vw; 
+        height: 5vh !important;
+        font-size: 4vw;
+        margin-bottom: 2vh;
+    }
+    
+    .dob-container 
+    {
+        display: flex;
+        flex-direction: column; 
+        gap: 1.5vh;
+        width: 100%;
+        align-items: center;
+    }
+
+    .dob-container select 
+    {
+        width: 60vw; 
+        height: 6vh;
+    }
+
+    main 
+    {
+        height: 92vh !important; 
+        padding: 1rem;
+        margin: 2vh 2vw;
+    }
+
+    .profile 
+    {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 1.5rem; 
+        margin-top: 2vh !important;
+    }
+
+    .profile-data 
+    {
+        font-size: 1rem; 
+    }
+    
+    #reset 
+    {
+        width: 100%; 
+        padding: 1vh 7vw !important;
+        font-size: 4vw !important;
+    }
+    
+    
+    .countries 
+    {
+        margin-top: 1.5rem;
+    }
+
+    #country-search-form 
+    {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 1rem;
+        margin-top: 4vh !important;
+    }
+
+    #country-search-input 
+    {
+        width: 90%; 
+        font-size: 1rem;
+    }
+    #country-search-input::placeholder
+    {
+        font-size: 6vw;
+    }
+    #country-search-form button 
+    {
+        width: 60%; 
+        padding: 2vh 0;
+    }
+
+    .country-flag 
+    {
+        width: 120px; 
+    }
+
+    
+    .toggle, .theme 
+    {
+        top: auto; 
+        left: auto;
+        bottom: 60px; 
+        right: 40px; 
+    }
+
+    .toggle img 
+    {
+        width: 8vw;
+        height: 8vw;
+    }
+}
